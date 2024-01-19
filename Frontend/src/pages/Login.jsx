@@ -38,7 +38,7 @@ export default function Login() {
             if (data.data.status === true) {
                 console.log("abeeee");
                 console.log(data.data.tempUser);
-                localStorage.setItem('SpilTeaUser', JSON.stringify(data.data.tempUser));
+                localStorage.setItem('spil-tea-user', JSON.stringify(data.data.tempUser));
                 navigate('/chat');
             }
 
@@ -57,6 +57,7 @@ export default function Login() {
         draggable: true,
         theme: "dark",
     }
+    
     const handleValidation = () => {
         const { username, password } = values;
         if (password.length === "") {
