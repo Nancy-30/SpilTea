@@ -7,12 +7,12 @@ const MsgSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-      user: Array,
-      sender: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-      },
+    },
+    user: Array,
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
   },
   {

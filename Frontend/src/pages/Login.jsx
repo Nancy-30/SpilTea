@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
     const navigate = useNavigate();
     useEffect(() => {
-        if (localStorage.getItem('SpilTeaUser')) {
+        if (localStorage.getItem('spil-tea-user')) {
             navigate('/chat');
         }
     }, [])
@@ -57,7 +57,7 @@ export default function Login() {
         draggable: true,
         theme: "dark",
     }
-    
+
     const handleValidation = () => {
         const { username, password } = values;
         if (password.length === "") {

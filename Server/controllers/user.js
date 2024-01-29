@@ -63,10 +63,12 @@ const setAvatar = async (req, res, next) => {
     const userId = req.param.id;
     const avatarImage = req.body.image;
     const userData = await User.findByIdAndUpdate(userId, {
-      isAvatarSet: true,
+      // isAvatarSet: true,
       avatarImage,
     });
-    return res.json({ isSet: userData, isAvatarSet, image: userData.image });
+
+    console.log(userData.image)
+    return res.json({ isSet: userData, image: userData.avatarImage });
   } catch (ex) {
     next(ex);
   }

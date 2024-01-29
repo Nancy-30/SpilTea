@@ -21,12 +21,14 @@ export default function SetAvatar() {
     }
 
     const setProfilePic = async () => {
+
         if (selectedAvatar === undefined) {
             toast.error("Select an avatar", toastOptions);
         } else {
             console.log("hehe erroorrrrrrr")
-            const user = await JSON.parse(localStorage.getItem("SpilTeaUser"));
+            const user = await JSON.parse(localStorage.getItem("spil-tea-user"));
             console.log(selectedAvatar);
+            console.log(user);
             const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
                 image: selectedAvatar,
             });
@@ -34,7 +36,7 @@ export default function SetAvatar() {
             if (data.isSet) {
                 user.isAvatarSet = true;
                 user.avatarImage = data.image;
-                localStorage.setItem("spilTeaUser", JSON.stringify(user));
+                localStorage.setItem("spil-tea-user", JSON.stringify(user));
                 navigate('/chat');
             } else {
                 toast.error("Error in setting avatar", toastOptions);

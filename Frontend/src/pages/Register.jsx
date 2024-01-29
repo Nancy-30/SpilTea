@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Register() {
     const navigate = useNavigate();
     useEffect(() => {
-        if (localStorage.getItem('SpilTeaUser')) {
+        if (localStorage.getItem('spil-tea-user')) {
             navigate('/chat');
         }
     }, [])
@@ -38,8 +38,7 @@ export default function Register() {
 
             if (data.data.status === true) {
                 console.log(data.data);
-                localStorage.setItem('SpilTeaUser', JSON.stringify(data.data.user));
-                console.log("hehhehehehehheeh")
+                localStorage.setItem('spil-tea-user', JSON.stringify(data.data.user));
                 navigate('/chat');
             }
 
